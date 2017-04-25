@@ -121,8 +121,8 @@ $$
 &\left|R_n\right|
 <\frac{\mathrm{e}^0}{(n+1)!}
 =\frac{1}{(n+1)!}\\
-&\frac{n!}{\mathrm{e}}-!n=n!R_n\\
 &\left|\frac{n!}{\mathrm{e}}-!n\right|
+=\left|n!R_n|
 <\frac{1}{n+1}
 \end{split}
 $$

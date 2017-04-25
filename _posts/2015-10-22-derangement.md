@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 错排数的通项式及递推式
+title: 在线性时间内求解错排数
 date: 2015-10-22
 categories: blog
 tags: [组合数学]
@@ -26,9 +26,9 @@ Fig.1 The 9 derangements (from 24 permutations) are highlighted.
 ## 概率模型
 
 令$$A_i$$对应第$$i$$封信放进正确信封的事件($$i=1,\cdots,n$$)，
-$$p_n=\Pr(\cup_{i=1}^n A_i)$$为至少有一封信放进正确信封的概率。
+$$p_n=\Pr(\cup_{i=1}^n A_i)$$为至少有一封信放进正确信封的概率.
 
-随机地放置信件，则有$$\Pr(A_i)=\frac{1}{n}$$
+随机地放置信件，则有$$\Pr(A_i)=1/n$$
 
 $$\sum_{i=1}^n\Pr(A_i)=n\cdot\frac{1}{n}=1$$
 
@@ -76,7 +76,6 @@ $$
 $$
 
 
-
 $$
 \lim_{n\to\infty}\frac{!n}{n!}=\frac{1}{\mathrm{e}}\approx 0.3679\cdots\cdots
 $$
@@ -89,8 +88,6 @@ $$
 !n=&n!+\sum_{i=1}^{n}(-1)^{i}\binom{n}{i}(n-i)!\\
 \end{split}$$
 
-其中$$\left[x\right]$$表示四舍五入函数，$$\left\lfloor x\right\rfloor$$表示向下取整.
-
 ## 递推式
 
 $$!n=n\cdot!(n-1)+(-1)^n$$
@@ -101,6 +98,8 @@ $$
 !n=\left[\frac{n!}{\mathrm{e}}\right]
 =\left\lfloor\frac{n!}{\mathrm{e}}+0.5\right\rfloor
 $$
+
+其中$$\left[x\right]$$表示四舍五入函数，$$\left\lfloor x\right\rfloor$$表示向下取整.
 
 这个简化公式可以由之前的通项公式推导出来。事实上，考虑指数函数$$\mathrm{e}^x$$在0处的泰勒展开：
 
@@ -114,7 +113,7 @@ R_n=&\frac{\mathrm{e}^{\xi}}{(n+1)!}(-1)^{n+1}
 \end{split}
 $$
 
-其中$$R_n$$为拉格朗日余项，$$-1<\xi<0$$
+其中$$R_n$$为拉格朗日余项，$$-1<\xi<0$$.
 
 $$
 \begin{split}
@@ -133,5 +132,6 @@ $$
 !n=\left[\frac{n!}{\mathrm{e}}\right]
 $$
 
-### 简记式的计算复杂度
-如果已经预先计算了n!，那么通过查表，计算!n的时间复杂度可由O(n)降为O(1)。
+如果n!的求解问题是线性复杂的，并且在高精度运算中，除法和取整运算能在常数时间内完成，
+那么上式的计算复杂度也是线性的，时间复杂度为O(n).
+

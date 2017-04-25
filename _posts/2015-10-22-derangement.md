@@ -122,7 +122,7 @@ $$
 <\frac{\mathrm{e}^0}{(n+1)!}
 =\frac{1}{(n+1)!}\\
 &\left|\frac{n!}{\mathrm{e}}-!n\right|
-=\left|n!R_n|
+=\left|n!R_n\right|
 <\frac{1}{n+1}
 \end{split}
 $$

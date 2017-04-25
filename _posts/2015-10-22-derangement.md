@@ -118,24 +118,18 @@ $$
 
 $$
 \begin{split}
-\therefore 
 &\left|R_n\right|
 <\frac{\mathrm{e}^0}{(n+1)!}
 =\frac{1}{(n+1)!}\\
-
-\because
 &\frac{n!}{\mathrm{e}}-!n=n!R_n\\
-
-\therefore
 &\left|\frac{n!}{\mathrm{e}}-!n\right|
 <\frac{1}{n+1}
 \end{split}
 $$
 
-当$$n\ge2$$时，$$1/(n+1) < 0.5$$
+当$$n\ge2$$时，$$1/(n+1) < 0.5$$，因此
 
 $$
-\therefore
 !n=\left[\frac{n!}{\mathrm{e}}\right]
 $$
 

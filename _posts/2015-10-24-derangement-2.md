@@ -59,14 +59,14 @@ void derangementNum_all(INT *d, unsigned n) {
 
 // O(n) time, O(1) space
 INT derangementNum(unsigned n) {
-	INT dn_2 = 0, dn_1 = 1, d_n;
+	INT dn_2 = 0, dn_1 = 1, dn;
 	if (n <= 1) return 0;
 	if (n == 2) return 1;
 	for (unsigned i = 2; i < n; i++) {
-		d_n = i * ( dn_2 + dn_1 );
+		dn = i * ( dn_2 + dn_1 );
 		dn_2 = dn_1;
-		dn_1 = d_n;
+		dn_1 = dn;
 	}
-	return d_n;
+	return dn;
 }
 ```

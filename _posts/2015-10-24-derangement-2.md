@@ -30,7 +30,7 @@ $$p_n=1-\frac{1}{2!}+\frac{1}{3!}-\frac{1}{4!}+\cdots+\left(-1\right)^{n+1}\frac
 
 $$D_n=n!\left(1-p_n\right)$$
 
-因此，对$$p_n$$进行差分，有：
+对$$p_n$$进行差分，有：
 
 $$\begin{split}
 \left(-1\right)^{n+1}\frac{1}{n!}=&p_n-p_{n-1}=
@@ -41,7 +41,7 @@ $$\begin{split}
 $$\begin{split}
 &\therefore D_n&=nD_{n-1}+(-1)^n\\
 &\therefore D_{n-1}&=(n-1)D_{n-2}-(-1)^n\\
-&\therefore D_n&=(n-1)\left(D_{n-2}+D_{n-1}\right)\\
+&\therefore D_n&=(n-1)\left(D_{n-2}+D_{n-1}\right)\quad n \ge 4\\
 \end{split}$$
 
 ## c/cpp实现

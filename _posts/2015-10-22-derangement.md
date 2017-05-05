@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 在线性时间内求解错排数
+title: 错排数（一）
 date: 2015-10-22
 categories: blog
 tags: [组合数学]
@@ -8,8 +8,21 @@ description: 全错位排列指即被欧拉称为组合数论的一个妙题的�
 ---
 
 错排 (derangement) 是组合数学中的问题之一。
-考虑一个有n个元素的排列，若一个排列中所有的元素都不在自己原来的位置上，
-那么这样的排列就称为原排列的一个错排。n个元素的错排数记为$$D_n$$ 或$$!n$$。 
+若n为大于1的自然数，考虑一个有n个元素的排列，若一个排列中所有的元素都不在自己原来的位置上，
+那么这样的排列就称为原排列的一个错排。n个元素的错排数记为$$D_n$$ 或$$!n$$。
+对$$\forall n\ge 2$$ ，有
+
+$$!n = \left[\frac{n!}{\mathrm{e}}\right]
+=\left\lfloor\frac{n!}{\mathrm{e}}+0.5\right\rfloor$$
+
+其中$$n!$$表示阶乘函数，e为自然对数的底，$$\left[x\right]$$表示round函数，$$\left\lfloor x\right\rfloor$$表示floor函数.
+
+比如说，让4只程序猿互相测试代码，所有猿不测自己写的代码，分配方案有多少种？
+利用上述公式容易得到 $$!4=\left[4!/\mathrm{e}\right]\approx \left[24/2.7\right]=9$$，
+所以共有9种。
+
+这个问题有许多具体的版本，最早研究错排问题的是尼古拉·伯努利和欧拉，因此历史上也称为伯努利-欧拉的装错信封的问题：在写信时将n封信装到n个不同的信封里，有多少种全部装错信封的情况？
+
 
 ## 定义
 
@@ -17,11 +30,7 @@ description: 全错位排列指即被欧拉称为组合数论的一个妙题的�
 即存在没有不动点的双射 $$\varphi $$:$$S\rightarrow S$$, $$\varphi(i) \ne i$$, $$\forall i \in S$$.
 
 ![Derangement4.png](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/blog/Derangement4.png)
-Fig.1 The 9 derangements (from 24 permutations) are highlighted.
-
-## “装错信封”问题
-这个问题有许多具体的版本，最早研究错排问题的是尼古拉·伯努利和欧拉，因此历史上也称为伯努利-欧拉的装错信封的问题：在写信时将n封信装到n个不同的信封里，有多少种全部装错信封的情况？
-
+The 9 derangements (from 24 permutations) are highlighted.
 
 ## 概率模型
 
@@ -67,19 +76,6 @@ $$
 \end{split}
 $$
 
-## 极限
-由函数$$\mathrm{e}^x$$在0处的泰勒展式得:
-
-$$
-\lim_{n\to\infty}p_n=1-\frac{1}{2!}-\frac{1}{3!}+\frac{1}{4!}+\cdots
-=1-\mathrm{e}^{-1}
-$$
-
-
-$$
-\lim_{n\to\infty}\frac{!n}{n!}=\frac{1}{\mathrm{e}}\approx 0.3679\cdots\cdots
-$$
-
 ## 通项
 
 $$
@@ -88,9 +84,9 @@ $$
 !n=&n!+\sum_{i=1}^{n}(-1)^{i}\binom{n}{i}(n-i)!\\
 \end{split}$$
 
-## 递推式
+<!-- ## 递推式
 
-$$!n=n\cdot!(n-1)+(-1)^n$$
+$$!n=n\cdot!(n-1)+(-1)^n$$ -->
 
 ## 简记式
 
@@ -98,8 +94,6 @@ $$
 !n=\left[\frac{n!}{\mathrm{e}}\right]
 =\left\lfloor\frac{n!}{\mathrm{e}}+0.5\right\rfloor
 $$
-
-其中$$\left[x\right]$$表示四舍五入函数，$$\left\lfloor x\right\rfloor$$表示向下取整.
 
 这个简化公式可以由之前的通项公式推导出来。事实上，考虑指数函数$$\mathrm{e}^x$$在0处的泰勒展开：
 
@@ -132,6 +126,18 @@ $$
 !n=\left[\frac{n!}{\mathrm{e}}\right]
 $$
 
-如果n!的求解问题是线性复杂的，并且在高精度运算中，除法和取整运算能在常数时间内完成，
-那么上式的计算复杂度也是线性的，时间复杂度为O(n).
+<!-- 如果n!的求解问题是线性复杂的，并且在高精度运算中，除法和取整运算能在常数时间内完成，
+那么上式的计算复杂度也是线性的，时间复杂度为O(n). -->
 
+## 极限
+由函数$$\mathrm{e}^x$$在0处的泰勒展式得:
+
+$$
+\lim_{n\to\infty}p_n=1-\frac{1}{2!}+\frac{1}{3!}-\frac{1}{4!}+\cdots
+=1-\mathrm{e}^{-1}
+$$
+
+
+$$
+\lim_{n\to\infty}\frac{!n}{n!}=\frac{1}{\mathrm{e}}\approx 0.3679\cdots\cdots
+$$

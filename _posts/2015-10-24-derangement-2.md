@@ -62,11 +62,11 @@ INT derangementNum(unsigned n) {
 	INT dn_2 = 0, dn_1 = 1, d_n;
 	if (n <= 1) return 0;
 	if (n == 2) return 1;
-    for (unsigned i = 2; i < n; i++) {
-        d_n = i * ( dn_2 + dn_1 );
-        dn_2 = dn_1;
-        dn_1 = d_n;
-    }
-    return d_n;
+	for (unsigned i = 2; i < n; i++) {
+		d_n = i * ( dn_2 + dn_1 );
+		dn_2 = dn_1;
+		dn_1 = d_n;
+	}
+	return d_n;
 }
 ```

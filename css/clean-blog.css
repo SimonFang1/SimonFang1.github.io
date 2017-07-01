@@ -524,3 +524,13 @@ body {
   background-color: #ddd;
 }
 
+#tag_cloud {
+  margin: 10pt 1pt 10pt 1pt;
+  font-size: 18pt;
+  color: #11B5AE;
+}
+.listing-seperator{
+  list-style:none;
+  font-size: 18pt;
+  font-weight: bold;
+}

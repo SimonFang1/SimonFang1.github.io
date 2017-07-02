@@ -12,7 +12,7 @@ Ubnutu操作系统必须是64bit,并且内核版本必须大于或者等于3.1.0
 ```bash
 uname -r
 ```
-![ubuntu 版本](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/blog/dock1.png)
+![ubuntu 版本](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/blog/docker1.png)
 
 ##  安装
 

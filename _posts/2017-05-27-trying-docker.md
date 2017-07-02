@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dock初体验
+title: Docker初体验
 date: 2017-05-27
 categories: blog
 tags: [系统分析与设计]

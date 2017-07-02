@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dock的通俗理解
+title: Docker的通俗理解
 date: 2017-05-27
 categories: blog
 tags: [系统分析与设计]

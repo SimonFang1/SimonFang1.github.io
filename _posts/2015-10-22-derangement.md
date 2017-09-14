@@ -10,7 +10,7 @@ description: 全错位排列指即被欧拉称为组合数论的一个妙题的�
 错排 (derangement) 是组合数学中的问题之一。
 若n为大于1的自然数，考虑一个有n个元素的排列，若一个排列中所有的元素都不在自己原来的位置上，
 那么这样的排列就称为原排列的一个错排。n个元素的错排数记为$$D_n$$ 或$$!n$$。
-对$$\forall n\ge 2$$ ，有
+对$\forall n\ge 2$ ，有
 
 $$!n = \left[\frac{n!}{\mathrm{e}}\right]
 =\left\lfloor\frac{n!}{\mathrm{e}}+0.5\right\rfloor$$

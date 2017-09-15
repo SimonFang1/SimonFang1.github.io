@@ -62,6 +62,25 @@ $$
 GF(q) 的特征值(characteristic)，容易证明 $\lambda$
 是一个素数。当 $q \ne \lambda$时，$q$ 是 $\lambda$的幂。
 
+令$a$为GF(q)中的非零元素。
+由于GF(q)中的非零元素在乘法下是封闭的，下列$a$的幂
+
+$$a^1 = a,\quad a^2=a\cdot a,\quad a^3=a\cdot a\cdot a,\quad \cdots$$
+
+必然也是GF(q)中的非零元素。由于GF(q)是有限域，
+所给出的$a$的幂不可能各不相同。
+也就是说，必然存在两个正整数 $k$ 和 $m$，使得 $m > k$
+且$a^k=a^m$。令$a^{-1}$为$a$的乘法逆元，则
+$\left(a^{-1}\right)^k=a^{-k}$是$a^k$的乘法逆元。
+在$a^k=a^m$的两端同时乘以$a^{-k}$，得
+
+$$
+1=a^{m-k}
+$$
+
+这个等式说明必然存在一个使得$a^n=1$的最小正整数。
+这个整数 $n$ 称为域元素 $a$ 的阶(order)。
+
 **定理** 若 $a$ 为有限域 GF(q) 中的一个非零元素，则
 $a^{q-1}=1$.
 
@@ -195,3 +214,4 @@ int main(int argc, char const *argv[]) {
 	return 0;
 }
 ```
+

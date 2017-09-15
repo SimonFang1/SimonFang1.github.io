@@ -60,13 +60,13 @@ $$
 所以必然存在一个使得 $\sum_{i=1}^{\lambda} 1 = 0$
 的最小正整数$\lambda$，这个整数 $\lambda$ 称为域
 GF(q) 的特征值(characteristic)，容易证明 $\lambda$
-是一个素数。
+是一个素数。当 $q \ne \lambda$时，$q$ 是 $\lambda$的幂。
 
 **定理** 若 $a$ 为有限域 GF(q) 中的一个非零元素，则
 $a^{q-1}=1$.
 
 
-**定理** 若 $a$ 为有限域 GF(q) 中的一个非零元素
+**定理** 若 $a$ 为有限域 GF(q) 中的一个非零元素，
 n 为 a 的阶，则 n 必能整除 q - 1.
 
 在有限域 GF(q) 中，如果 a 的阶为 q - 1，则非零元素
@@ -76,19 +76,16 @@ a 被称为本原元 (primitive element)。
 
 ![primitive_element.png](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/blog/primitive_element.png)
 
+以上图片来自 [差错控制编码 作者: [美] 林舒（Lin，S.）](https://book.douban.com/subject/2145366/) 第2章 代数引论 2.1 2.2
 
 # 问题分析
 
-## 两数组合能被7整除充要条件
+## 两数组合能被7整除的充要条件
 
 已知 A, B 为正整数，A 是 n 位数，若
 $\overline{BA} = B \times 10^{n} + A \equiv 0\quad (mod\ 7)$，
 则 B 需要满足什么约束？
 
-<!-- 当 $7\ \|\ A$时，问题是平凡的。
-此时，$7\ \|\ B$。
-
-当 $7\ \not{\|}\ A$时， -->
 注意到：
 $$\begin{split}
 10^n =& \left(3 + 7\right)^n = 3^n + \sum_{i = 1}^n C_n^i 3^{n-i}7^i\
@@ -102,7 +99,7 @@ $A'=\sum_{i=1}^A 1$ ，
 
 $$\begin{split}
 & B' 3^n + A' = 0\\
-& B' = (7-A') \times  3^{(-n)\ mod\ 6}\\
+& B' = (-A') \times  3^{-n}\\
 \therefore \quad & B \equiv (7-A) \times 3^{6-(n\ mod\ 6)}\quad (mod\ 7)
 \end{split}$$
 
@@ -119,8 +116,8 @@ int main() {
 	int match[7][7] = {0};
 	int three[] = {1, 3, 2, 6, 4, 5};
 	for (int i = 1; i < 7; i++) {
-		for (int j = 1; j < 7; j++) {
-			match[i][j] = (7 - i) * three[(6 - j)];
+		for (int j = 0; j < 6; j++) {
+			match[i][j] = (7 - i) * three[(6 - j) % 6];
 			match[i][j] %= 7;
 			cout << match[i][j] << " ";
 		}
@@ -131,12 +128,12 @@ int main() {
 ```
 结果如下：
 ```bash
-2 3 1 5 4 6
-4 6 2 3 1 5
 6 2 3 1 5 4
-1 5 4 6 2 3
-3 1 5 4 6 2
 5 4 6 2 3 1
+4 6 2 3 1 5
+3 1 5 4 6 2
+2 3 1 5 4 6
+1 5 4 6 2 3
 ```
 
 ## 计数方法
@@ -145,7 +142,7 @@ int main() {
 统计输入不能被 7 整除时，按余数(i)及十进制位数(j)分类，
 每种类型的输入个数cnt[i, j]，再分别求出 6 种余数（不按十进制位数分类）的总数S[i]。
 
-$$2\binom{cnt0}{2} + \sum_{i=1}^{6}\sum_{j=0}^{5} cnt[i, j]\cdot S[match[i, j]]$$
+$$2\binom{cnt0}{2} + \sum_{i=1}^{6}\sum_{j=0}^{5} cnt[i, j] \cdot S[match[i, j]]$$
 
 即为所求的结果。
 
@@ -183,7 +180,7 @@ int main(int argc, char const *argv[]) {
 	for (int i = 1; i < 7; i++) {
 		for (int j = 0; j < 6; j++) {
 			count[i][6] += count[i][j];
-			match[i][j] = (7 - i) * three[(6 - j)];
+			match[i][j] = (7 - i) * three[(6 - j) % 6];
 			match[i][j] %= 7;
 		}
 	}

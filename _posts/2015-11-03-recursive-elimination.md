@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 递归的消除——令人又爱又恨的递归
+title: 递归的消除
 date: 2015-11-03
 categories: blog
 tags: [数据结构, 递归, 性能优化]
-description:
+description: 令人又爱又恨的递归
 ---
 
 递归对于分析问题比较有优势，但是基于递归的实现效率可能不高。另外，因为函数栈大小的限制，递归的层次也有限制。
@@ -219,7 +219,9 @@ int main() {
   Solution s;
   auto list = s.FindPath(root, 22);
   // use gdb to print list
+
   cout << list.size() << endl;
+
   // delete root is unnecessary
   return 0;
 }

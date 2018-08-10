@@ -9,8 +9,8 @@ url: ""
 # About/contact
 owner: 
   name: "Simon Fang"
-  email: simonfang1024@gmail.com
-  bio: "写就是写的报酬"
+  email: simonfang53@gmail.com
+  bio: "好记性不如烂笔头"
 
 # Data
 gavatar: img/avatar.jpg
@@ -24,9 +24,10 @@ weibo_username:
 zhihu_username: 
 
 # Build settings  
-# use Github Flavored Markdown !important  
-# document: http://jekyllrb.com/docs/configuration/#kramdown  
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
 highlighter: rouge
 permalink: pretty
 paginate: 8
@@ -48,11 +49,11 @@ defaults:
 
 # Comments 
 comments :
-  provider : duoshuo
+  provider :
   duoshuo :
     short_name : 
   disqus :
-      short_name : 
+    short_name : 
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: 

@@ -127,22 +127,23 @@ $$\begin{split}
 因此，对于 A ，只需关注在 6 类不同的余数，以及 6 类不同的十进制位数(digit)下，
 分别确定B的余数。
 
-```c++
+```cpp
 #include <iostream>
+
 using namespace std;
 
 int main() {
-	int match[7][7] = {0};
-	int three[] = {1, 3, 2, 6, 4, 5};
-	for (int i = 1; i < 7; i++) {
-		for (int j = 0; j < 6; j++) {
-			match[i][j] = (7 - i) * three[(6 - j) % 6];
-			match[i][j] %= 7;
-			cout << match[i][j] << " ";
-		}
-		cout << endl;
-	}
-	return 0;
+  int match[7][7] = {0};
+  int three[] = {1, 3, 2, 6, 4, 5};
+  for (int i = 1; i < 7; i++) {
+    for (int j = 0; j < 6; j++) {
+      match[i][j] = (7 - i) * three[(6 - j) % 6];
+      match[i][j] %= 7;
+      cout << match[i][j] << " ";
+    }
+    cout << endl;
+  }
+  return 0;
 }
 ```
 结果如下：
@@ -172,46 +173,48 @@ $$2\binom{cnt0}{2} + \sum_{i=1}^{6}\sum_{j=0}^{5} cnt[i, j] \cdot S[match[i, j]]
 
 空间复杂度 o(1)
 
-```c++
+```cpp
 #include <iostream>
+
 #include <cmath>
+
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-	int n;
-	int an;
-	int count[7][7] = {0};
-	int &count0 = count[0][0];
-	int match[7][7] = {0};
-	int three[] = {1, 3, 2, 6, 4, 5};
+  int n;
+  int an;
+  int count[7][7] = {0};
+  int &count0 = count[0][0];
+  int match[7][7] = {0};
+  int three[] = {1, 3, 2, 6, 4, 5};
 
-	cin >> n;
-	for (int i = 0; i < n; i++) {
-		// if log10() is time consuming, read an as a string
-		// then get the length of string and convert it to integer.
-		cin >> an;
-		if (an % 7) {
-			count[an % 7][((int)ceil(log10(1 + an))) % 6]++;
-		} else {
-			count0++;
-		}
-	}
-	for (int i = 1; i < 7; i++) {
-		for (int j = 0; j < 6; j++) {
-			count[i][6] += count[i][j];
-			match[i][j] = (7 - i) * three[(6 - j) % 6];
-			match[i][j] %= 7;
-		}
-	}
+  cin >> n;
+  for (int i = 0; i < n; i++) {
+    // if log10() is time consuming, read an as a string
+    // then get the length of string and convert it to integer.
+    cin >> an;
+    if (an % 7) {
+      count[an % 7][((int)ceil(log10(1 + an))) % 6]++;
+    } else {
+      count0++;
+    }
+  }
+  for (int i = 1; i < 7; i++) {
+    for (int j = 0; j < 6; j++) {
+      count[i][6] += count[i][j];
+      match[i][j] = (7 - i) * three[(6 - j) % 6];
+      match[i][j] %= 7;
+    }
+  }
 
-	unsigned long long total = count0 * (count0 - 1);
-	for (int i = 1; i < 7; i++) {
-		for (int j = 0; j < 6; j++) {
-			total += count[i][j] * count[match[i][j]][6];
-		}
-	}
-	cout << total << endl;
-	return 0;
+  unsigned long long total = count0 * (count0 - 1);
+  for (int i = 1; i < 7; i++) {
+    for (int j = 0; j < 6; j++) {
+      total += count[i][j] * count[match[i][j]][6];
+    }
+  }
+  cout << total << endl;
+  return 0;
 }
 ```
 

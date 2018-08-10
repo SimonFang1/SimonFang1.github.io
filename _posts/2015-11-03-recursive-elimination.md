@@ -219,9 +219,7 @@ int main() {
   Solution s;
   auto list = s.FindPath(root, 22);
   // use gdb to print list
-
   cout << list.size() << endl;
-
   // delete root is unnecessary
   return 0;
 }

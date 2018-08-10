@@ -13,7 +13,7 @@ description: 本文介绍在Ubuntu/Debian下，Vim编辑器及其插件的配置
 2. git
 
 不熟悉vim命令的新手，可以在终端运行vimtutor快速入门。
-若不慎按下了Ctrl+s锁定了终端，可通过Ctrl+q接除锁定。
+若不慎按下了Ctrl+s锁定了终端，可通过Ctrl+q解除锁定。
 
 ```bash
 sudo apt install vim git # Ubuntu/Debian
@@ -28,11 +28,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 ### 配置.vimrc文件安装插件
-.vimrc 文件是 Vim 程序启动后会自动执行的脚本文件(run command)，
-位于home目录下。
-将想要安装的插件，将插件地址填写在vundle#begin和vundle#end之间就可以，
-插件地址填写的具体方法见[Vundle](https://github.com/VundleVim/Vundle.vim)
-项目说明文档。
+.vimrc 文件是 Vim 程序启动后会自动执行的脚本文件(run command)，位于home目录下。
+将想要安装的插件，将插件地址填写在vundle#begin和vundle#end之间就可以，插件地址填写的具体方法见[Vundle](https://github.com/VundleVim/Vundle.vim)项目说明文档。
 
 用 vim 编辑 .vimrc，将其替换成如下脚本内容。
 插件只是示例，更多的插件请自行探索，不需要的插件请自行删除。

@@ -103,16 +103,19 @@ if has("autocmd")
 endif
 ```
 
-## 安装[YouCompleteMe](https://github.com/Valloric/YouCompleteMe)插件
+## 配置[YouCompleteMe](https://github.com/Valloric/YouCompleteMe)插件
 
-非Ubuntu 系统和C/C++语言配置参考 (https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64).
+Ubuntu 系统和C/C++语言可运行如下命令：
+
 ```bash
 sudo apt-get install build-essential cmake
-sudo apt-get install python-dev python3-dev
+sudo apt-get install python3-dev
 sudo apt-get install clang
 cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+python3 ./install.py --clang-completer
 ```
+
+其他系统和语言参考 [https://github.com/Valloric/YouCompleteMe#installation](https://github.com/Valloric/YouCompleteMe#installation).
 
 ### 配置.vimrc文件
 在.vimrc文件后追加以下内容

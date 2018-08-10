@@ -38,10 +38,10 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 1. 复制脚本内容
 2. vim .vimrc打开文件
 3. :set paste进入粘贴模式（取消自动缩进，括号引号匹配等自动补全，:set nopaste退出粘贴模式）
-4. i进入插入模式
+4. i进入插入模式，若文件非空，则用 ggVGc代替，gg意为移动光标到第一行，V进入VISUAL LINE模式，G移动光标到最后一行，c删除并进入插入模式
 5. Ctrl+Shift+v粘贴脚本内容
 6. Esc退出插入模式
-7. :wq保存退出。
+7. :wq保存退出
 
 ```vim
 set nocompatible              " be iMproved, required

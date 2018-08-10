@@ -109,7 +109,7 @@ Ubuntu 系统和C/C++语言可运行如下命令：
 
 ```bash
 sudo apt-get install build-essential cmake
-sudo apt-get install python3-dev
+sudo apt-get install python-dev python3-dev
 sudo apt-get install clang
 cd ~/.vim/bundle/YouCompleteMe
 python3 ./install.py --clang-completer

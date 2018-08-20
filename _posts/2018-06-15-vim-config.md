@@ -20,11 +20,12 @@ sudo apt install vim git # Ubuntu/Debian
 vimtutor
 ```
 
-## 安装[Vundle](https://github.com/VundleVim/Vundle.vim)
+## 安装[vim-plug](https://github.com/junegunn/vim-plug)
 
-### 下载Vundle
+### 下载vim-plug
 ```bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ### 配置.vimrc文件安装插件
@@ -34,50 +35,46 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 用 vim 编辑 .vimrc，将其替换成如下脚本内容。
 插件只是示例，更多的插件请自行探索，不需要的插件请自行删除。
 
+```vim
+set nocompatible              " be iMproved, required
+filetype plugin indent on     " required
+
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine' 
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'flazz/vim-colorschemes'
+call plug#end()
+" Put your non-Plugin stuff after this line
+```
+
 具体操作步骤为：
 1. 复制脚本内容
 2. vim .vimrc打开文件
-3. :set paste进入粘贴模式（取消自动缩进，括号引号匹配等自动补全，:set nopaste退出粘贴模式）
-4. i进入插入模式，若文件非空，则用 ggVGc代替，gg意为移动光标到第一行，V进入VISUAL LINE模式，G移动光标到最后一行，c删除并进入插入模式
+3. :set paste进入粘贴模式（取消自动缩进，括号引号匹配等自动补全，:set nopaste可退出）
+4. i进入INSERT模式，若文件非空，则用 ggVGc代替，gg意为移动光标到第一行，V进入VISUAL LINE模式，G移动光标到最后一行，c删除并进入INSERT模式
 5. Ctrl+Shift+v粘贴脚本内容
-6. Esc退出插入模式
-7. :wq保存退出
+6. Esc退出插入模式，回到NORMAL模式
+7. :w 保存
+8. 运行:source ~/.vimrc，或者退出并再次进入 vim
+9. 运行 :PluginInstall，安装完成之后，插件就可以使用了。
 
-```vim
-set nocompatible              " be iMproved, required
-filetype off                  " required
+### vim-plug的主要命令
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" plugin on GitHub repo
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'Yggdroot/indentLine' 
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'terryma/vim-multiple-cursors'
-
-" Color schemes
-Plugin 'tomasr/molokai'
-Plugin 'flazz/vim-colorschemes'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-" Put your non-Plugin stuff after this line
-```
-再次运行 vim，再运行 :PluginInstall，安装完成之后，插件就可以使用。
-
-### 移除不需要的插件
-1. 编辑.vimrc文件移除的你要移除的插件所对应的plugin那一行.
-2. 保存退出当前的vim.
-3. 重新打开vim，输入命令:BundleClean.
+|命令|作用|
+|-|-|
+|PlugStatus|检查插件状态|
+|PlugUpdate|更新插件|
+|PlugDiff|查看更改|
+|PlugInstall|安装在配置文件中声明的插件|
+|PlugClean|删除 vim 配置文件中所有未声明的插件|
+|PlugUpgrade|升级vim-plug本身|
 
 ## 自定义配置
 在.vimrc文件后追加以下内容
@@ -85,19 +82,16 @@ filetype plugin indent on    " required
 set nu
 "set cc=80
 set cursorline
+set cursorcolumn
 "set expandtab shiftwidth=2 tabstop=2 softtabstop=2
 set autoindent
 set nospell
 colorscheme molokai
 
+let mapleader=','
 imap {<CR> {<CR>}<ESC>O
 
-"indentLine 代码缩进线标志线
-"let g:indentLine_char = '¦' 
-"let g:indentLine_color_term = 239 
-"映射到ctrl+i键 
-"map <C-i> :IndentLinesToggle<CR> 
-
+" 定位到上次退出时的位置
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -110,8 +104,8 @@ Ubuntu 系统和C/C++语言可运行如下命令：
 ```bash
 sudo apt-get install build-essential cmake
 sudo apt-get install python-dev python3-dev
-sudo apt-get install clang
 cd ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
 python3 ./install.py --clang-completer
 ```
 

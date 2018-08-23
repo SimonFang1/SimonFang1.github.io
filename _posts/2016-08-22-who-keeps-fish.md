@@ -19,7 +19,8 @@ function getScrollTop() {
 }
 document.onscroll = function() {
   var fc = document.getElementById('floatclue');
-  if (getScrollTop()>1000)
+  var st = getScrollTop();
+  if (st>1000 && st<4000)
     fc.style.display='';
   else
     fc.style.display='none';

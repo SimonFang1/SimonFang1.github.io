@@ -26,8 +26,8 @@ document.onscroll = function() {
 }
 </script>
 
-<div id="floatclue" style="display:none;position:fixed;right:0;bottom:0;width:303px;font-size:smaller;background-color:#ffd5d5;margin:5px;">
-<ol>
+<div id="floatclue" style="display:none;position:fixed;right:0;bottom:0;width:298px;font-size:smaller;background-color:#fdffb0;">
+<ol style="margin:5px;padding:1px 0 1px 25px;">
   <li>英国人住在红色的房子里；</li>
   <li>瑞典人养狗作为宠物；</li>
   <li>丹麦人喝茶；</li>
@@ -179,35 +179,35 @@ clue 7,11:
 ||绿|咖啡|||
 ||白||||
 
+clue 3,12:
+
+|国籍|房子|饮料|香烟|宠物|
+|-|-|-|-|-|
+|挪威|黄|_矿泉水_|Dunhill||
+||蓝|<span style="color:crimson;">茶/啤酒</span>||马|
+|英国|红|牛奶|||
+||绿|咖啡|||
+||白|<span style="color:crimson;">茶/啤酒</span>||||
+
 clue 15:
 
 |国籍|房子|饮料|香烟|宠物|
 |-|-|-|-|-|
-|挪威|黄|__矿泉水__|Dunhill||
+|挪威|黄|矿泉水|Dunhill||
 ||蓝||__Blends__|马|
 |英国|红|牛奶|||
 ||绿|咖啡|||
 ||白||||
 
-clue 12:
+clue 3,12:
 
 |国籍|房子|饮料|香烟|宠物|
 |-|-|-|-|-|
 |挪威|黄|矿泉水|Dunhill||
-||蓝|_茶_|Blends|马|
+|__丹麦__|蓝|__茶__|Blends|马|
 |英国|红|牛奶|||
 ||绿|咖啡|||
 ||白|__啤酒__|__BlueMaster__||
-
-clue 3:
-
-|国籍|房子|饮料|香烟|宠物|
-|-|-|-|-|-|
-|挪威|黄|矿泉水|Dunhill||
-|__丹麦__|蓝|茶|Blends|马|
-|英国|红|牛奶|||
-||绿|咖啡|||
-||白|啤酒|BlueMaster||
 
 clue 13:
 
@@ -239,3 +239,5 @@ clue 10:
 |德国|绿|咖啡|Prince|_鱼_|
 |瑞典|白|啤酒|BlueMaster|狗|
 
+
+因此是德国人养了鱼。

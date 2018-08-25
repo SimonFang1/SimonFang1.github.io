@@ -3,12 +3,13 @@ layout: post
 title: C++11智能指针的简单对比
 date:  2018-08-23
 categories: blog
-tags: [tag1， tag2]
+tags: [C++11]
 description: 
 ---
 
 ## 为什么使用智能指针
 C++继承自C语言，在管理堆上的内存方面，赋予了程序员很大的灵活性。但繁琐内存管理的问题经常容易出错，稍不小心就会有内存泄露或段错误等问题。在C++中动态管理内存往往遵循申请内存和释放内存成对的原则，但是由于异常处理机制可能会增加函数的出口，因此程序员在异常发生后忘记释放内存的情况经常发生，导致内存泄漏。
+
 在C++中，栈空间的对象是有生命周期的，在销毁的时候会执行它的析构函数。智能指针是可以自动管理堆上内存的特殊对象，它在自身析构函数中定义了对托管指针的处理，可谓智能。由于提供了指针操作接口(operator->,operator*)，实例表现得像指针一样，因此得名智能指针。
 
 ## ~~[auto_ptr](http://www.cplusplus.com/reference/memory/auto_ptr/)~~ [deprecatied since c++11]
@@ -151,7 +152,7 @@ weak_ptr是一种不控制对象生命周期的智能指针，它指向一个 sh
 4. 其他情况应试具体的应用场景，选择合适的智能指针类型，甚至为了性能的最大化不使用智能指针。
 
 下面用weak_ptr来改进上一节中的例程。
-__注意：weak_ptr在调用lock()方法前必须先调用expire()方法检查是否过期，若shared_ptr已经销毁，则lock()方法返回的shared_ptr指向nullptr__
+__注意：weak_ptr在调用lock()方法前必须先调用expire()方法检查是否过期，若shared_ptr已经销毁，则lock()方法返回的shared_ptr指向nullptr，这也是weak_ptr不重载operator*，operator->方法的原因。__
 
 ```cpp
 #include <iostream>

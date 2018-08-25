@@ -15,7 +15,7 @@ layout: default
                 <div class="post-heading">
                     <div class="Tags">
                         {% for tag in page.tags %}
-                        <a class="tag" href="/Tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                        <a class="tag" href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
                         {% endfor %}
                     </div>
                     <h1>{{ page.title }}</h1>
@@ -28,9 +28,6 @@ layout: default
         </div>
     </div>
 </header>
-
-
-
 
 <!-- Post Content -->
 <article>
@@ -76,7 +73,12 @@ layout: default
     </div>
 </article>
 
+<link rel="stylesheet" href="/css/backtop.css">  <!-- Back Top -->
+<script type="text/javascript" src="/js/backtop.js"></script>  <!-- Back Top -->
 
+<div id="back-top">
+  <a href="#top" title="回到顶部"></a>
+</div>
 
 <!-- async load function -->
 <script>
@@ -92,7 +94,7 @@ layout: default
 
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("//cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',

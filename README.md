@@ -1,4 +1,7 @@
-## 说明
+# SimonFang's Site
 
-此博客框架来自 [陈素封](cnfeat.com)，感谢。
+My Personal Website:
 
+Visit => [simonfang1.github.io](https://simonfang1.github.io).
+
+Powered by [Jekyll](http://jekyllrb.com/) & [Microdust](https://github.com/Azeril/Microdust).

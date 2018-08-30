@@ -97,6 +97,7 @@ using namespace std;
 
 struct List {
   //T data;
+
   static int _count;
   List() {
     ++_count;
@@ -113,12 +114,14 @@ int List::_count = 0;
 
 int main() {
   { // A => B
+
     shared_ptr<List> head(new List);
     head->next = shared_ptr<List>(new List);
     cout << "shared_ptr.use_count() = " << head.use_count() << endl;
   }
   cout << endl;
   { // A <=> B
+
     shared_ptr<List> head(new List);
     head->next = shared_ptr<List>(new List);
     head->next->prev = head;
@@ -183,11 +186,11 @@ int List::_count = 0;
 int main() {
   vector<int> data({0,10,20,30,40});
   vector<shared_ptr<List> > container;
-  container.push_back(make_shared<List>();
+  container.push_back(make_shared<List>());
   shared_ptr<List> first = container.back();
   weak_ptr<List> extra_head = first;
   for (auto &x: data) {
-    container.push_back(make_shared<List>(x);
+    container.push_back(make_shared<List>(x));
     shared_ptr<List> second(container.back());
     first->next = second;
     second->prev = first;

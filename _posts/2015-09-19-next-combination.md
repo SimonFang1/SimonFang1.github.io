@@ -37,6 +37,7 @@ bool next_combination(RandomAccessIterator index, uint k, uint n) {
     ++last;
     return true;
   }
+  if (k == 1) return false;
   uint i = k - 2;
   while (i > 0 && index[i] == index[i+1] - 1) --i;
   if (i == 0 && index[i] == index[i+1] - 1) return false;

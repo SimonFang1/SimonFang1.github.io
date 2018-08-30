@@ -73,8 +73,8 @@ std::unique_ptr<T> myOtherPtr = std::move(myPtr); // ok
 ## [shared_ptr](http://www.cplusplus.com/reference/memory/shared_ptr/)
 shared_ptr基于“引用计数”模型实现，多个shared_ptr可指向同一个动态对象，并维护了一个共享的引用计数器，记录了引用同一对象的shared_ptr实例的数量。当最后一个指向动态对象的shared_ptr销毁时，会自动销毁其所指对象。和unique_ptr一样，shared_ptr也支持自定义的Deleter以实现个性化的资源释放动作。
 shared_ptr的创建有两种方式:
-1. 使用构造函数(可从原生指针、unique_ptr、另一个shared_ptr创建)
-2. 使用函数make_shared
+1. 使用函数make_shared（推荐）
+2. 使用构造函数(可从原生指针、unique_ptr、另一个shared_ptr创建)
 
 ### shared_ptr的线程安全性
 shared_ptr objects offer the same level of thread safety as built-in types.
@@ -166,11 +166,6 @@ using namespace std;
 struct List {
   int data;
   static int _count;
-  List(const List &l) {
-    *this = l;
-    ++_count;
-    cout << "copy List, total: " << _count << endl;
-  }
   List(int d = 0) {
     data = d;
     ++_count;
@@ -188,11 +183,11 @@ int List::_count = 0;
 int main() {
   vector<int> data({0,10,20,30,40});
   vector<shared_ptr<List> > container;
-  container.push_back(make_shared<List>(List()));
+  container.push_back(make_shared<List>();
   shared_ptr<List> first = container.back();
   weak_ptr<List> extra_head = first;
   for (auto &x: data) {
-    container.push_back(make_shared<List>(List(x)));
+    container.push_back(make_shared<List>(x);
     shared_ptr<List> second(container.back());
     first->next = second;
     second->prev = first;
@@ -221,23 +216,11 @@ int main() {
 
 ```bash
 create List, total: 1
-copy List, total: 2
-destroy List, total: 1
 create List, total: 2
-copy List, total: 3
-destroy List, total: 2
 create List, total: 3
-copy List, total: 4
-destroy List, total: 3
 create List, total: 4
-copy List, total: 5
-destroy List, total: 4
 create List, total: 5
-copy List, total: 6
-destroy List, total: 5
 create List, total: 6
-copy List, total: 7
-destroy List, total: 6
 cur->data = 40
 cur.use_count() = 3
 cur->prev.use_count() = 1
@@ -250,4 +233,5 @@ destroy List, total: 3
 destroy List, total: 2
 destroy List, total: 1
 destroy List, total: 0
+
 ```

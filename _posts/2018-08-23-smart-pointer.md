@@ -236,5 +236,4 @@ destroy List, total: 3
 destroy List, total: 2
 destroy List, total: 1
 destroy List, total: 0
-
 ```

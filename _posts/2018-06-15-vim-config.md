@@ -86,6 +86,7 @@ set cursorcolumn
 "set expandtab shiftwidth=2 tabstop=2 softtabstop=2
 set autoindent
 set nospell
+set encoding=utf-8
 colorscheme molokai
 
 let mapleader=','
@@ -104,9 +105,9 @@ Ubuntu 系统和C/C++语言可运行如下命令：
 ```bash
 sudo apt-get install build-essential cmake
 sudo apt-get install python-dev python3-dev
-cd ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
 git submodule update --init --recursive
-python3 ./install.py --clang-completer
+python3 install.py --clang-completer
 ```
 
 其他系统和语言参考 [https://github.com/Valloric/YouCompleteMe#installation](https://github.com/Valloric/YouCompleteMe#installation).

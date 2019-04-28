@@ -9,7 +9,7 @@ description:
 
 ## 纯音
 
-从信号分解的角度看，最基本的声波也是正弦波，任何声波可以被分解成频域空间，连续频率的正弦信号的线性组合。正弦波的声音就是纯音，但是可以被人耳听到的纯音在自然界中几乎不存在，因为简单的机械运动频率太低。我们可以用计算机人工合成一个纯音（实验1.1），它的频率为$\omega=440 \text{Hz}$，持续时间为$1$s，声波的振动运动方程为：
+从信号分解的角度看，最基本的声波也是正弦波，任何声波可以被分解成频域空间，连续频率的正弦信号的线性组合。正弦波的声音就是[**纯音(Pure tone)**](https://en.wikipedia.org/wiki/Pure_tone)，但是可以被人耳听到的纯音在自然界中几乎不存在，因为简单的机械运动频率太低。我们可以用计算机人工合成一个纯音（实验1.1），它的频率为$\omega=440 \text{Hz}$，持续时间为$1$s，声波的振动运动方程为：
 
 $$
 f(t) = Asin(2\pi\omega t + \varphi)
@@ -25,9 +25,9 @@ $$
 [![](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/piano_a4.png)](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/piano_a4.svg)
 
 
-观察钢琴音色的频谱图可以发现若干个等距的高峰，分别是$440\text{Hz},880\text{Hz},1320\text{Hz},\dots$。其中第一个高峰的能量最强，是琴弦振动的固有频率，这个成分称为基波。后续出现的高峰的频率是基波频率的整数倍，称为谐波，音乐人往往将谐波称为“泛音”。事实上，
+观察钢琴音色的频谱图可以发现若干个等距的高峰，分别是$440\text{Hz},880\text{Hz},1320\text{Hz},\dots$。其中第一个高峰的能量最强，是琴弦振动的固有频率，这个成分称为基波，基波的频率称为基频。后续出现的高峰的频率是基频的整数倍，称为谐波，音乐人往往将谐波称为[**泛音(Overtone)**](https://en.wikipedia.org/wiki/Overtone)。我们认为音高的频率是基波的频率。
 
-关于泛音的成因，也可以在理论上建模，并求得解析解，这是个经典的物理问题，可参考 [*有界弦的自由振动问题*](https://en.wikipedia.org/wiki/String_vibration)。钢琴内部琴弦的两端被紧紧地固定住，当琴槌敲击琴弦后，机械波传递至两端，再反射回来，形成干涉。因为两波的频率相等，可以形成稳定的驻波。关于驻波的通俗解释，可以参考[李永乐老师讲神奇的驻波实验](https://www.bilibili.com/video/av43117270)。
+泛音的成因有理论上的解释，这是个经典的物理模型，可参考[*有界弦的自由振动问题*](https://en.wikipedia.org/wiki/String_vibration)。在有明显音高的乐器中，弦或空气管之间会有因反射而产生干涉，并形成驻波。关于驻波的通俗解释，可以参考[李永乐老师讲神奇的驻波实验](https://www.bilibili.com/video/av43117270)。
 
 ## 拍音
 
@@ -37,11 +37,22 @@ $$
 
 [![](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/beat_tone.png)](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/beat_tone.svg)
 
-特别地，频率相差一倍的两个单音叠加形成的拍音，其频率等于较低的音的频率，这样的拍音听起来就像一个音。当两个单音频率很接近时，且振幅相等，利用和差化积公式，可得拍音的频率变成了两个单音的平均值。
+特别地，频率相差一倍的两个单音叠加形成的拍音，其频率等于较低的音的频率，这样的拍音听起来就像一个音。当两个单音频率很接近时，拍音的频率变成了两个单音的平均值，而拍频变得很小，可以明显地听到声音的音量忽强忽弱。
+
+先令振幅相等，利用和差化积公式，
 
 $$\begin{aligned}
 y = &\frac{1}{2}\left(\sin(\omega_1t)+\sin(\omega_2t)\right)
 =\sin\left(\frac{\omega_1+\omega_2}{2}\right)\cos\left(\frac{\omega_1-\omega_2}{2}\right)\\
-\approx &\sin\left(\frac{\omega_1+\omega_2}{2}\right)\quad \text{when}\, \omega_1 \approx \omega_2
+\approx &\sin\left(\frac{\omega_1+\omega_2}{2}\right)\quad \text{when}\ \omega_1 \approx \omega_2
 \end{aligned}$$
 
+再令振幅一般化，取$0< \Delta a < \epsilon$，$n_1=\lfloor A_1/\Delta a\rfloor$，$n_2=\lfloor A_2/\Delta a\rfloor$，$m=\lfloor\log_2(n_1+n_2)\rfloor$，
+
+$$\begin{aligned}
+2y = &A_1\sin(\omega_1t)+A_2\sin(\omega_2t)
+\approx \Delta a \left(n_1\sin(\omega_1t)+n_2\sin(\omega_2t)\right)\\
+=& \Delta a \sum ^{n_1+n_2}_{i=1}\sin(\omega_it)
+\approx \Delta a \sum ^{2^m}_{i=1}\sin(\omega_it)\\
+\approx &2\bar{A}\sin(\bar\omega t)
+\end{aligned}$$

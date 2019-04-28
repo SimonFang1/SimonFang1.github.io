@@ -37,7 +37,7 @@ $$
 
 [![](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/beat_tone.png)](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/beat_tone.svg)
 
-特别地，频率相差一倍的两个单音叠加形成的拍音，其频率等于较低的音的频率，这样的拍音听起来就像一个音。当两个单音频率很接近时，拍音的频率变成了两个单音的平均值，而拍频变得很小，可以明显地听到声音的音量忽强忽弱。
+特别地，频率相差一倍的两个单音叠加形成的拍音，其频率等于较低的音的频率，这样的拍音听起来就像一个音。当两个单音频率很接近时，拍音的频率变成了两个单音的平均值，而拍频变得很小，可以明显地听到声音的音量忽强忽弱，利用这一特性可以进行调音。
 
 先令振幅相等，利用和差化积公式，
 

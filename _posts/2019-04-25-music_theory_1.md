@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 音乐背后的数学原理 (1) 纯音，泛音和拍音
+title: 音乐与数学 (1) 纯音，泛音和拍音
 date:  2019-04-25
 categories: blog
 tags: [Music Theory]

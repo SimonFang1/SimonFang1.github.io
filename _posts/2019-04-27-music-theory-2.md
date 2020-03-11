@@ -38,6 +38,9 @@ description:
 
 由于频率相差很小时，即可认为和声的公共周期为1，也可认为公共周期很大，为了消除这种矛盾，我们认为一个频率窗口内$(f-r,f+r)$内的音都是同一个音，公共周期取这个区间内最小的公共周期。由此，可以粗略地度量十二平均律的基本音级之间的和谐程度，结果如下。
 
+[![](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/least_common_period.png)](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/least_common_period.svg)
+
+
 ### 乐音
 
 乐音由一系列的泛音构成，本节尝试借助KL散度的定义，从宏观角度量化两个乐音之间的距离，两个乐音之间的距离越小，则听起来越和谐。

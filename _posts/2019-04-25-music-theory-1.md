@@ -27,7 +27,7 @@ $$
 
 观察钢琴音色的频谱图可以发现若干个等距的高峰，分别是$440\text{Hz},880\text{Hz},1320\text{Hz},\dots$。其中第一个高峰的能量最强，是琴弦振动的固有频率，这个成分称为基波，基波的频率称为基频。后续出现的高峰的频率是基频的整数倍，称为谐波，音乐人往往将谐波称为[**泛音(Overtone)**](https://en.wikipedia.org/wiki/Overtone)。我们认为音高的频率是基波的频率。
 
-泛音的成因有理论上的解释，这是个经典的物理模型，可参考[*有界弦的自由振动问题*](https://en.wikipedia.org/wiki/String_vibration)。在有明显音高的乐器中，弦或空气管之间会有因反射而产生干涉，并形成驻波。关于驻波的通俗解释，可以参考[李永乐老师讲神奇的驻波实验](https://www.bilibili.com/video/av43117270)。
+泛音的成因有理论上的解释，是个经典的物理模型，可参考[*有界弦的自由振动问题*](https://en.wikipedia.org/wiki/String_vibration)。在有明显音高的乐器中，弦或空气管之间会有因反射而产生干涉，并形成驻波。关于驻波的通俗解释，可以参考[李永乐老师讲神奇的驻波实验](https://www.bilibili.com/video/av43117270)。
 
 ## 拍音
 
@@ -37,8 +37,9 @@ $$
 
 [![](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/beat_tone.png)](https://raw.githubusercontent.com/SimonFang1/SimonFang1.github.io/master/img/music_theory/beat_tone.svg)
 
-特别地，频率相差一倍的两个单音叠加形成的拍音，其频率等于较低的音的频率，这样的拍音听起来就像一个音。当两个单音频率很接近时，拍音的频率变成了两个单音的平均值，而拍频变得很小，可以明显地听到声音的音量忽强忽弱，利用这一特性可以进行调音。
+特别地，频率相差一倍的两个单音叠加形成的拍音，其频率等于较低的音的频率，这样的拍音听起来就像一个音。当两个单音频率很接近时，拍音的频率变成了两个单音的平均值，而拍频变得很小，周期很长，可以听到声音的音量逐渐地由强变弱、由弱变强，利用这一特性可以进行调音（调整后，和标准音叉形成的和声拍音，周期接近无穷大）。
 
+频率接近的和声，频率听起来是平均值的证明如下：
 先令振幅相等，利用和差化积公式，
 
 $$\begin{aligned}

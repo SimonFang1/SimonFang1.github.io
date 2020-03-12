@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 音乐与数学 (3) 音律和基本音级
-date:  2019-04-27
+date:  2019-04-28
 categories: blog
 tags: [Music Theory]
 description: 
